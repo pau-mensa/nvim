@@ -144,6 +144,10 @@ return {
           require('lspconfig').pyright.setup({
             on_init = function(client)
               local project_root = client.config.root_dir
+	      if project_root == nil then
+	        project_root = vim.fn.getcwd()
+        	vim.notify("Using current directory as project root: " .. project_root, vim.log.levels.INFO)
+	      end
               local venv_path = project_root .. '/.venv'
 
               -- Check if the .venv exists, otherwise use system Python
