@@ -25,7 +25,7 @@ return {
         window = {
           position = "float"
         },
-        close_if_last_window = true,
+        close_if_last_window = false,
         default_source = "filesystem",
         use_libuv_file_watcher = true,
       })
