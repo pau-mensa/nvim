@@ -107,18 +107,19 @@ require('nvim-treesitter.configs').setup({
 require("ibl").setup()
 
 -- DAP Setup
-local dap, dapui = require("dap"), require("dapui")
-dapui.setup()
+-- local dapui = require("dapui")
+local dap = require("dap")
+-- dapui.setup({})
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
+--dap.listeners.after.event_initialized["dapui_config"] = function()
+--  dapui.open()
+--end
+--dap.listeners.before.event_terminated["dapui_config"] = function()
+--  dapui.close()
+--end
+--dap.listeners.before.event_exited["dapui_config"] = function()
+--  dapui.close()
+--end
 
 vim.keymap.set("n", "<leader>sb", ":DapToggleBreakpoint<CR>")
 vim.keymap.set("n", "<leader>sd", ":DapContinue<CR>")
